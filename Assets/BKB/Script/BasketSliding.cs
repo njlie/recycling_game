@@ -5,7 +5,7 @@ public class BasketSliding : MonoBehaviour {
 	public Transform des1;
 	public Transform des2;
 
-	public float speed = 1;
+	public float speed = 0;
 
 	// Use this for initialization
 	void Start () {

@@ -8,9 +8,6 @@ public class MenuManager : MonoBehaviour {
 
 	public GameObject Startmenu;
 	public GameObject GUI;
-	public GameObject Shop;
-	public GameObject PlayMode;
-	public GameObject NotEnoughCoins;
 
 	public Transform star_menu;
 
@@ -18,9 +15,6 @@ public class MenuManager : MonoBehaviour {
 		Instance = this;
 		Startmenu.SetActive (true);
 		GUI.SetActive (true);
-		Shop.SetActive (false);
-		PlayMode.SetActive (false);
-		NotEnoughCoins.SetActive (false);
 	}
 
 	public void RestartGame(){
@@ -61,17 +55,7 @@ public class MenuManager : MonoBehaviour {
 		Startmenu.SetActive (true);
 	}
 
-	public void OpenShop(){
-		Shop.SetActive (true);
-		SoundManager.PlaySfx (SoundManager.Instance.soundClick);
-	}
-
 	public void OpenPlayMode(){
-		PlayMode.SetActive (true);
 		SoundManager.PlaySfx (SoundManager.Instance.soundClick);
-	}
-
-	public void ShowNotEnoughCoins(){
-		NotEnoughCoins.SetActive (false);
 	}
 }

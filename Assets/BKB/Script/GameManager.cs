@@ -35,21 +35,21 @@ public class GameManager: MonoBehaviour {
 	public int SavedPoints {
 		get {
 			string mode;
-			if (BasketManager.Instance.Mode == BasketManager.PlayMode.Endless)
-				mode = GlobalValue.ModeNormal;
-			else if (BasketManager.Instance.Mode == BasketManager.PlayMode.Sliding)
-				mode = GlobalValue.ModeSliding;
-			else
+//			if (BasketManager.Instance.Mode == BasketManager.PlayMode.Endless)
+//				mode = GlobalValue.ModeNormal;
+//			else if (BasketManager.Instance.Mode == BasketManager.PlayMode.Sliding)
+//				mode = GlobalValue.ModeSliding;
+//			else
 				mode = GlobalValue.ModeDual;
 			
 			return PlayerPrefs.GetInt (mode, 0); } 
 		set { 
 			string mode;
-			if (BasketManager.Instance.Mode == BasketManager.PlayMode.Endless)
-				mode = GlobalValue.ModeNormal;
-			else if (BasketManager.Instance.Mode == BasketManager.PlayMode.Sliding)
-				mode = GlobalValue.ModeSliding;
-			else
+//			if (BasketManager.Instance.Mode == BasketManager.PlayMode.Endless)
+//				mode = GlobalValue.ModeNormal;
+//			else if (BasketManager.Instance.Mode == BasketManager.PlayMode.Sliding)
+//				mode = GlobalValue.ModeSliding;
+//			else
 				mode = GlobalValue.ModeDual;
 
 			PlayerPrefs.SetInt (mode, value); } 
@@ -103,7 +103,7 @@ public class GameManager: MonoBehaviour {
 		//reset all value and send the command to others
 		Point = 0;
 		TheBall.Instance.Reset ();
-		_Basket.Reset ();
+		//_Basket.Reset ();
 		if (BasketTimeChallenge.Instance != null)
 			BasketTimeChallenge.Instance.Reset ();
 		GlobalValue.combo = 1;

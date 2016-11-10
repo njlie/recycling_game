@@ -1,17 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class TheBall : MonoBehaviour {
 	public static TheBall Instance;
 
-	public float force = 10f;		//the push force
+	public float force = 0f;		//the push force
 	public float mulDistaceDrag = 1.5f;	//scale the distance of the begin touch and the current touch	
 	public GameObject theBall;
 	public float allowFireDistance = 2f;	//when the distance of the begin and the current touch over this value then fire the ball
 	public Transform[] SpawnPoint;	//random spawn the ball with this postion list
+	public Sprite[] itemObj;
+
+	public Queue<int> randInd = new Queue<int> ();
 
 	[HideInInspector]
 	public Sprite BallSprite;	//change every Ball sprite with this BallSprite 
+	private int randIndex;
 
 	public GameObject Star;
 	[Range(10,100)]
@@ -42,6 +47,7 @@ public class TheBall : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		Debug.Log ("TheBall/Start");
 		StartCoroutine (SpawnBallCo (0, transform.position));
 		_Basket = FindObjectOfType<Basket> ();
 		_StartMenu = FindObjectOfType<StartMenu> ();
@@ -50,6 +56,9 @@ public class TheBall : MonoBehaviour {
 
 		//get the choosen ball sprite
 		BallSprite = ItemManager.Instance.GetItemImage (PlayerPrefs.GetInt (GlobalValue.ChoosenBall, 0));
+		randInd.Clear();
+		randInd.Enqueue(Random.Range (0, 7));
+		randInd.Enqueue(Random.Range (0, 7));
 	}
 
 
@@ -80,7 +89,8 @@ public class TheBall : MonoBehaviour {
 	void Fire(){
 		_StartMenu.HideMenu ();
 
-		if (BasketManager.Instance.Mode == BasketManager.PlayMode.TimeChallenge)
+//		if (BasketManager.Instance.Mode == BasketManager.PlayMode.TimeChallenge)
+		if (BasketManager.Instance.Mode == BasketManager.PlayMode.Easy)
 			BasketTimeChallenge.Instance.StartRun ();
 
 		direction = (pos2 - (Vector2)Ball.transform.position).normalized;
@@ -107,8 +117,6 @@ public class TheBall : MonoBehaviour {
 
 		var spawnPoint = SpawnPoint.Length > 0 ? SpawnPoint [Random.Range (0, SpawnPoint.Length)].position : transform.position;
 		StartCoroutine (SpawnBallCo (.5f, spawnPoint));
-
-		SpawnTheStar ();
 	}
 
 
@@ -116,35 +124,28 @@ public class TheBall : MonoBehaviour {
 	IEnumerator SpawnBallCo(float delay, Vector3 spawnPoint){
 		yield return new WaitForSeconds (delay);
 
-		Ball = Instantiate (theBall, spawnPoint, Quaternion.identity) as GameObject;
+		Ball = Instantiate (theBall, transform.position, Quaternion.identity) as GameObject;
 
 		ChangeBallSprite ();
-
 		rigBall = Ball.GetComponent<Rigidbody2D> ();
 
 	}
 
 	//change the ball's sprite
 	public void ChangeBallSprite(){
-		if (BallSprite != null)
-			Ball.GetComponent<Ball> ().ChangeSprite (BallSprite);
-	}
-
-	//spawn the star with the random chance
-	void SpawnTheStar(){
-		if (_Star != null)
-			return;
-
-		if (Random.Range (0, 100) < percentShowStar) {
-			Vector2 pos = _Basket.gameObject.transform.position;
-
-			if (BasketManager.Instance.Mode == BasketManager.PlayMode.Sliding)
-				pos = new Vector2 (pos.x + Random.Range (-2, 2), pos.y);
-				
-			_Star = Instantiate (Star, pos, Quaternion.identity) as GameObject;
+		randInd.Enqueue (Random.Range (0, 7));
+		randIndex = randInd.Dequeue ();
+		AssignItemValue (randIndex);
+		if (BallSprite != null){
+			Ball.GetComponent<Ball> ().ChangeSprite (itemObj[randIndex]);
 		}
 	}
 
+	public void AssignItemValue(int index) {
+		Ball.GetComponent<Ball> ().AssignValue (index);
+	}
+
+		
 	//Called by GameManager
 	public void Reset(){
 		if (Ball != null)
