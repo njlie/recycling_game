@@ -29,24 +29,7 @@ public class Item : MonoBehaviour {
 
 	//call by the button event itself
 	public void Click(){
-		if (!isUnlock)
-			CheckCoinsToUnlock ();		//if this item is not unlocked then unlock it
-		else {
-			TheBall.Instance.BallSprite = ItemManager.Instance.GetItemImage (ID);		//set image
-			TheBall.Instance.ChangeBallSprite ();	//change image of the current ball 
-			PlayerPrefs.SetInt (GlobalValue.ChoosenBall, ID);		//save the choosen ball, when you play the game again, it will take this ball
-			Shop.SetActive(false);
-		}	
-	}
 
-	private void CheckCoinsToUnlock(){
-		if (GameManager.Instance.SavedStars >= price) {
-			GameManager.Instance.SavedStars -= price;
-			ItemManager.Instance.Unlock (ID);
-			CheckUnlock ();
-			SoundManager.PlaySfx (soundUnlock);
-		} else {
-			MenuManager.Instance.ShowNotEnoughCoins ();
-		}
 	}
+		
 }

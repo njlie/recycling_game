@@ -9,11 +9,8 @@ public class BasketTimeChallenge : MonoBehaviour {
 
 	int currentDestination;	
 	Vector2 target;
-	public float timer = 20f;
-	public float timerToMove = 12f;
+	public float timer = 120f;
 	public float speed = 1;
-	int limitDes = 3;
-	bool allowMoving = false;
 
 	public float timeStart,timeLeft;
 	float _timer;
@@ -33,7 +30,8 @@ public class BasketTimeChallenge : MonoBehaviour {
 
 		currentDestination = 0;
 		target = Destination [currentDestination].position;
-		_timer = timer;
+		_timer = 120f;
+		timeLeft = 120f;
 	}
 
 	// Update is called once per frame
@@ -43,23 +41,11 @@ public class BasketTimeChallenge : MonoBehaviour {
 			return;
 		}
 		
-		if (allowMoving) {
-			transform.position = Vector2.MoveTowards (transform.position, target, speed * Time.deltaTime);
-			if (Vector2.Distance (transform.position, target) < 0.01f) {
-				currentDestination++;
-				if (((currentDestination + 1) > Destination.Length) || (currentDestination + 1) > limitDes)
-					currentDestination = 0;
 
-				target = Destination [currentDestination].position;
-			}
-		}else
-			transform.position = Vector2.MoveTowards (transform.position, centerDes.position, speed * Time.deltaTime);
+		transform.position = Vector2.MoveTowards (transform.position, centerDes.position, speed * Time.deltaTime);
 			
-
+		//timeLeft -= Time.deltaTime;
 		timeLeft = _timer - (Time.realtimeSinceStartup - timeStart);
-
-		if (timeLeft <= timerToMove)
-			allowMoving = true;
 
 		if (timeLeft <= 0) {
 			GameManager.Instance.GameOver ();
@@ -79,8 +65,8 @@ public class BasketTimeChallenge : MonoBehaviour {
 	public void Reset(){
 		currentDestination = 0;
 		target = Destination [currentDestination].position;
-		allowMoving = false;
-		_timer = timer;
+		_timer = timeLeft = 120f;
+		//timeLeft = 120f;
 		isRunning = false;
 	}
 }
