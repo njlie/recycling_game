@@ -58,14 +58,10 @@
      <Compile Include="Assets\BKB\Script\ItemManager.cs" />
      <Compile Include="Assets\BKB\Script\MenuManager.cs" />
      <Compile Include="Assets\BKB\Script\NormalBasket.cs" />
-     <Compile Include="Assets\BKB\Script\Shop.cs" />
      <Compile Include="Assets\BKB\Script\SoundManager.cs" />
-     <Compile Include="Assets\BKB\Script\Star.cs" />
      <Compile Include="Assets\BKB\Script\StartMenu.cs" />
      <Compile Include="Assets\BKB\Script\TheBall.cs" />
      <Compile Include="Assets\BKB\Script\TimeDisplay.cs" />
-     <Compile Include="Assets\BKB\Script\UI.cs" />
-     <Compile Include="Assets\BKB\Script\UnityAds.cs" />
      <Compile Include="Assets\Change.cs" />
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
