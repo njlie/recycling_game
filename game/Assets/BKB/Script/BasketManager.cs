@@ -11,8 +11,10 @@ public class BasketManager : MonoBehaviour {
 //	public GameObject endless;
 //	public GameObject sliding;
 //	public GameObject timechallenge;
-	public GameObject timechallenge;
+	public GameObject timechallenge; // we only care about timeChallenge version of the game 
 
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// AWAKE // 
 	void Awake(){
 		Instance = this;
 //		endless.SetActive (false);
@@ -20,11 +22,15 @@ public class BasketManager : MonoBehaviour {
 		timechallenge.SetActive (true);
 	}
 
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// START // 
 	// Use this for initialization
 	void Start () {
 //		Mode = PlayMode.TimeChallenge;
 		Mode = PlayMode.Easy;
 	}
+
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 
 //	public void Endless(){
 //		endless.SetActive (true);
@@ -44,6 +50,8 @@ public class BasketManager : MonoBehaviour {
 //		SoundManager.PlaySfx (SoundManager.Instance.soundClick);
 //	}
 
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// TIME CHALLENGE // 
 	public void TimeChallenge(){
 //		endless.SetActive (false);
 //		sliding.SetActive (false);

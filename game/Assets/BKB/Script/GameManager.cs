@@ -19,12 +19,15 @@ public class GameManager: MonoBehaviour {
 	[HideInInspector]
 	public bool isNoLives = false;
 
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// AWAKE // 
 	void Awake(){
 		Instance = this;
 		State = GameState.Menu;
 	}
 
-
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// POINT // 
 	public int Point{ get; set; }
 	int savePointCheckPoint;
 
@@ -55,7 +58,8 @@ public class GameManager: MonoBehaviour {
 			PlayerPrefs.SetInt (mode, value); } 
 	}
 
-
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// START //  
 	void Start(){
 		if (!PlayerPrefs.HasKey (GlobalValue.Stars))
 			SavedStars = starsDefault;
@@ -65,6 +69,8 @@ public class GameManager: MonoBehaviour {
 		soundManager = FindObjectOfType<SoundManager> ();
 		_Basket = FindObjectOfType<Basket> ();
 	}
+
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 
 	public void ShowFloatingText(string text, Vector2 positon, Color color){
 		GameObject floatingText = Instantiate (FloatingText) as GameObject;
@@ -77,10 +83,14 @@ public class GameManager: MonoBehaviour {
 		_FloatingText.SetText (text, color);
 	}
 
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+
 	public void StartGame(){
 		State = GameState.Playing;
 	}
 
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// GAME OVER // 
 	public void GameOver(){
 //		State = GameState.Dead;
 		if (Point > SavedPoints)
@@ -89,14 +99,12 @@ public class GameManager: MonoBehaviour {
 		MenuManager.Instance.GameOver ();
 		SoundManager.PlaySfx (soundManager.soundGameover, 0.5f);
 
-
-
 		StartCoroutine (ResetCo (0.1f));
-
-
-//		AdsController.ShowAds ();
+	
 	}
 
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// RESET // 
 	IEnumerator ResetCo(float time){
 		yield return new WaitForSeconds (time);
 
@@ -108,4 +116,4 @@ public class GameManager: MonoBehaviour {
 			BasketTimeChallenge.Instance.Reset ();
 		GlobalValue.combo = 1;
 	}
-}
+} // end of game manager 

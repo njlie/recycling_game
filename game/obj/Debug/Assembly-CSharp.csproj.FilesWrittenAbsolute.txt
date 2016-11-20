@@ -16,3 +16,21 @@
 /Users/kiduel/New Unity Project 2/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/kiduel/New Unity Project 2/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/kiduel/New Unity Project 2/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/mjschmidt/gitHub/recyclingGame/recycling_game/game/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/mjschmidt/gitHub/recyclingGame/recycling_game/game/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/mjschmidt/gitHub/recyclingGame/recycling_game/game/obj/Debug/Assembly-CSharp.dll
+/Users/mjschmidt/gitHub/recyclingGame/recycling_game/game/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/mjschmidt/gitHub/recyclingGame/recycling_game/game/Temp/bin/Debug/UnityEngine.dll
+/Users/mjschmidt/gitHub/recyclingGame/recycling_game/game/Temp/bin/Debug/UnityEditor.dll
+/Users/mjschmidt/gitHub/recyclingGame/recycling_game/game/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/mjschmidt/gitHub/recyclingGame/recycling_game/game/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/mjschmidt/gitHub/recyclingGame/recycling_game/game/Temp/bin/Debug/UnityEngine.Analytics.dll
+/Users/mjschmidt/gitHub/recyclingGame/recycling_game/game/Temp/bin/Debug/Mono.Cecil.dll
+/Users/mjschmidt/gitHub/recyclingGame/recycling_game/game/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/mjschmidt/gitHub/recyclingGame/recycling_game/game/Temp/bin/Debug/Unity.DataContract.dll
+/Users/mjschmidt/gitHub/recyclingGame/recycling_game/game/Temp/bin/Debug/ICSharpCode.NRefactory.dll
+/Users/mjschmidt/gitHub/recyclingGame/recycling_game/game/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/mjschmidt/gitHub/recyclingGame/recycling_game/game/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/mjschmidt/gitHub/recyclingGame/recycling_game/game/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/mjschmidt/gitHub/recyclingGame/recycling_game/game/Temp/bin/Debug/Mono.Cecil.Pdb.dll
+/Users/mjschmidt/gitHub/recyclingGame/recycling_game/game/Temp/bin/Debug/Mono.Cecil.Mdb.dll

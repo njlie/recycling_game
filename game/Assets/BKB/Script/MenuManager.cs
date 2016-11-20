@@ -11,16 +11,22 @@ public class MenuManager : MonoBehaviour {
 
 	public Transform star_menu;
 
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+
 	void Awake(){
 		Instance = this;
 		Startmenu.SetActive (true);
 		GUI.SetActive (true);
 	}
 
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+
 	public void RestartGame(){
 		SoundManager.PlaySfx (SoundManager.Instance.soundClick);
 		SceneManager.LoadSceneAsync (SceneManager.GetActiveScene ().buildIndex);
 	}
+
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
 	public void HomeScene(){
 		SoundManager.PlaySfx (SoundManager.Instance.soundClick);
@@ -28,6 +34,8 @@ public class MenuManager : MonoBehaviour {
 		SceneManager.LoadSceneAsync ("MainMenu");
 
 	}
+
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
 	public void GameOver(){
 		Startmenu.GetComponent<StartMenu> ().ShowMenu ();
@@ -44,16 +52,22 @@ public class MenuManager : MonoBehaviour {
 //		}
 //	}
 
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+
 	public void StartGame(){
 		GUI.SetActive (true);
 		GameManager.Instance.StartGame ();
 	}
+
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
 	IEnumerator GameOverCo(float time){
 		yield return new WaitForSeconds (time);
 
 		Startmenu.SetActive (true);
 	}
+
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
 	public void OpenPlayMode(){
 		SoundManager.PlaySfx (SoundManager.Instance.soundClick);

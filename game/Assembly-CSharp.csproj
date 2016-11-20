@@ -51,6 +51,7 @@
      <Compile Include="Assets\BKB\Script\BasketManager.cs" />
      <Compile Include="Assets\BKB\Script\BasketSliding.cs" />
      <Compile Include="Assets\BKB\Script\BasketTimeChallenge.cs" />
+     <Compile Include="Assets\BKB\Script\Change.cs" />
      <Compile Include="Assets\BKB\Script\FloatingText.cs" />
      <Compile Include="Assets\BKB\Script\GameManager.cs" />
      <Compile Include="Assets\BKB\Script\GlobalValue.cs" />
@@ -58,11 +59,11 @@
      <Compile Include="Assets\BKB\Script\ItemManager.cs" />
      <Compile Include="Assets\BKB\Script\MenuManager.cs" />
      <Compile Include="Assets\BKB\Script\NormalBasket.cs" />
+     <Compile Include="Assets\BKB\Script\PauseMenu.cs" />
      <Compile Include="Assets\BKB\Script\SoundManager.cs" />
      <Compile Include="Assets\BKB\Script\StartMenu.cs" />
      <Compile Include="Assets\BKB\Script\TheBall.cs" />
      <Compile Include="Assets\BKB\Script\TimeDisplay.cs" />
-     <Compile Include="Assets\Change.cs" />
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>

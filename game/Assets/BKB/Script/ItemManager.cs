@@ -5,6 +5,7 @@ public class ItemManager : MonoBehaviour {
 	public static ItemManager Instance;		
 	public Sprite[] ItemImages;  //list of images
 
+
 	//check Unlocked or not
 	public bool isUnlocked(int ID){
 		return PlayerPrefs.GetInt (ID.ToString(), 0) == 0 ? false : true;
