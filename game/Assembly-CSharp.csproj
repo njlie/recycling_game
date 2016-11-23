@@ -69,7 +69,7 @@
      <Compile Include="Assets\BKB\Script\TrashDisplay.cs" />
      <Compile Include="Assets\BKB\Script\UI.cs" />
      <Compile Include="Assets\BKB\Script\UnityAds.cs" />
-     <Compile Include="Assets\BKB\Script\change.cs" />
+     <Compile Include="Assets\newWindow.cs" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>

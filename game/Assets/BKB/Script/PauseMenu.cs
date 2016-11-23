@@ -33,6 +33,7 @@ public class PauseMenu : MonoBehaviour {
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 	// PAUSE BUTTON // 
 	public void pauseButtonPressed(){
+		SoundManager.PlaySfx (SoundManager.Instance.soundClick); // play the click Sound
 		isPaused = !isPaused;
 	}
 
@@ -45,6 +46,7 @@ public class PauseMenu : MonoBehaviour {
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 	// NEW GAME BUTTON // 
 	public void newGAME(){
+		isPaused = false; 
 		Application.LoadLevel (game);	// load the game Level 
 	}
 
