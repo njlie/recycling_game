@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{6A563344-5187-22F0-1C25-CA721BB1A760}") = "Recycling V2", "Assembly-CSharp-firstpass.csproj", "{257D27D0-21CB-6B75-A9D0-A22E34800185}"
+EndProject
+Project("{6A563344-5187-22F0-1C25-CA721BB1A760}") = "Recycling V2", "Assembly-CSharp.csproj", "{5BCD9C36-7A80-8AD1-4C2D-8438E0F56550}"
+EndProject
+Project("{6A563344-5187-22F0-1C25-CA721BB1A760}") = "Recycling V2", "Assembly-CSharp-Editor.csproj", "{B9C734CB-22D2-FBA8-5BEB-A77A04942BB0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{257D27D0-21CB-6B75-A9D0-A22E34800185}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{257D27D0-21CB-6B75-A9D0-A22E34800185}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{257D27D0-21CB-6B75-A9D0-A22E34800185}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{257D27D0-21CB-6B75-A9D0-A22E34800185}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BCD9C36-7A80-8AD1-4C2D-8438E0F56550}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BCD9C36-7A80-8AD1-4C2D-8438E0F56550}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BCD9C36-7A80-8AD1-4C2D-8438E0F56550}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BCD9C36-7A80-8AD1-4C2D-8438E0F56550}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9C734CB-22D2-FBA8-5BEB-A77A04942BB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9C734CB-22D2-FBA8-5BEB-A77A04942BB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9C734CB-22D2-FBA8-5BEB-A77A04942BB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9C734CB-22D2-FBA8-5BEB-A77A04942BB0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

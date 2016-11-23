@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class Change : MonoBehaviour {
+public class change : MonoBehaviour {
 	public Transform mainMenu, optionsMenu;
 	public AudioSource someAudioSource;
 
@@ -10,7 +11,7 @@ public class Change : MonoBehaviour {
 
 	public void Start ()
 	{
-		
+
 	}
 
 	// Turns Music on and off
@@ -21,6 +22,7 @@ public class Change : MonoBehaviour {
 		else
 			someAudioSource.mute = true;
 	}
+
 	// Update is called once per frame
 	public void changeToScene (string sceneTochangeTo)
 	{
@@ -42,5 +44,5 @@ public class Change : MonoBehaviour {
 			mainMenu.gameObject.SetActive (true);
 		}
 	}
-		
+
 }

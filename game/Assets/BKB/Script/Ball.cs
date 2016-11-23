@@ -1,5 +1,4 @@
-﻿//hello
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class Ball : MonoBehaviour { 
@@ -10,8 +9,6 @@ public class Ball : MonoBehaviour {
 	public bool fire = false;	//telling that the ball is fired already
 	public Transform Ballsprite;
 
-	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
-	// various ball sounds for the game 
 	public AudioClip[] bounceSound;
 	[Range(0,1)]
 	public float bounceSoundVolume = 0.5f;
@@ -42,8 +39,6 @@ public class Ball : MonoBehaviour {
 	[HideInInspector]
 	public bool touchTheBall = false;
 
-	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
-	// START // 
 	// Use this for initialization
 	void Start () {
 		Debug.Log ("Ball/Start");
@@ -53,33 +48,26 @@ public class Ball : MonoBehaviour {
 		coll.enabled = true;
 	}
 
-	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
-	// FIRE // 
 	public void Fire(){
 		Debug.Log ("Ball/Fire");
 		fire = true;
 		coll.enabled = false;		//turn off collider when the ball begin move up to avoid the unnecessary collides
 	}
 
-	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
-	// CHANGE SPRITE // 
 	public void ChangeSprite(Sprite sprite){
 		Debug.Log ("Ball/ChangeSprite");
 		Ballsprite.GetComponent<SpriteRenderer> ().sprite = sprite;		//change the ball sprite
 	}
 
-	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
-	// ASSIGN VALUE // 
-	public void AssignValue(int index){					
+	public void AssignValue(int index){
 		if (index == 0 || index == 1 || index == 2)
-			itemValue = "Recycling";
+			itemValue = "Recycle";
 		else if (index == 3 || index == 4)
 			itemValue = "Compost";
 		else
 			itemValue = "Landfill";
 	}
 
-	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 	// Update is called once per frame
 	void Update () {
 		if (end)
@@ -102,30 +90,29 @@ public class Ball : MonoBehaviour {
 //		SoundManager.PlaySfx (bounceSound[Random.Range(0,bounceSound.Length)], bounceSoundVolume);
 //		isPerfect = false;		//no perfect when the ball collide with the basket
 //	}
-	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
-	// MOUSE DOWN // 
+
 	void OnMouseDown() {
 		Debug.Log ("Ball/onMouseDown");
 		touchTheBall = true;		//touch on the ball, mean the first touch must on the ball then we can fire it
 	}
-	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
-	// ADD POINT // 
-	void AddPoint() {
-		if (isPerfect) {
-			GameManager.Instance.Point += 2 * GlobalValue.combo;
-			SoundManager.PlaySfx (perfectSound, perfectSoundVolume);
-			GameManager.Instance.ShowFloatingText ("+" + 2 * GlobalValue.combo, transform.position, Color.red);
 
-			GlobalValue.combo++;
-		} else {
-			GlobalValue.combo = 1;
+	void AddPoint() {
+		Debug.Log ("ADDPOINT");
+		TheBall.Instance.dequeueItem (true);
+		//if (isPerfect) {
+		//	GameManager.Instance.Point += 2 * GlobalValue.combo;
+			SoundManager.PlaySfx (perfectSound, perfectSoundVolume);
+		//	GameManager.Instance.ShowFloatingText ("+" + 2 * GlobalValue.combo, transform.position, Color.red);
+
+		//	GlobalValue.combo++;
+		//} else {
+		//	GlobalValue.combo = 1;
 			GameManager.Instance.Point++;
-		}
+		//}
 	}
-	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
-	//  COLLISON DETECTION // 
+
 	void OnTriggerEnter2D(Collider2D other){
-		Debug.Log ("Ball/onTriggerEnter");
+		Debug.Log (itemValue);
 		if (!end && (other.tag == "Compost" || other.tag == "Landfill" || other.tag == "Recycle")) {
 			Debug.Log ("Ball/onTriggerEnter/!end && (other.tag == recycle, landfill, or compost");
 			if (transform.position.y < other.gameObject.transform.position.y) {
@@ -135,23 +122,29 @@ public class Ball : MonoBehaviour {
 
 			if (other.tag == "Landfill") {
 				Debug.Log ("Landfill");
-				if (itemValue == "Landfill")
+				if (itemValue == "Landfill") {
 					AddPoint ();
-				else
-					Debug.Log("WRONG");
+				} else {
+					Debug.Log ("WRONG");
+					TheBall.Instance.dequeueItem (false);
+				}
 
 			} else if (other.tag == "Compost") {
 				Debug.Log ("Compost");
-				if (itemValue == "Compost")
+				if (itemValue == "Compost") {
 					AddPoint ();
-				else
-					Debug.Log("WRONG");
+				} else {
+					Debug.Log ("WRONG");
+					TheBall.Instance.dequeueItem (false);
+				}
 			} else if (other.tag == "Recycle") {
 				Debug.Log ("Recycle");
-				if (itemValue == "Recycle")
+				if (itemValue == "Recycle") {
 					AddPoint ();
-				else
-					Debug.Log("WRONG");
+				} else {
+					Debug.Log ("WRONG");
+					TheBall.Instance.dequeueItem (false);
+				}
 			}
 //			else if (other.tag == "Fail") {
 //				Debug.Log ("Ball/onTriggerEnter/!end && (other.tag == Success || other.tag == Fail/Fail");

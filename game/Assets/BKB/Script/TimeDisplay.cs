@@ -14,7 +14,7 @@ public class TimeDisplay : MonoBehaviour {
 		transform.position = Camera.main.WorldToScreenPoint (displayPos.position);
 //		if (BasketManager.Instance.Mode == BasketManager.PlayMode.TimeChallenge) {
 		if (BasketManager.Instance.Mode == BasketManager.PlayMode.Easy) {
-			Display.SetActive (true);
+			//Display.SetActive (true);
 			if (BasketTimeChallenge.Instance.isRunning) {
 				minute = (int)((int)BasketTimeChallenge.Instance.timeLeft / 60f);
 				second = (int)((BasketTimeChallenge.Instance.timeLeft % 60f));

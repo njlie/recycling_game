@@ -13,8 +13,6 @@ public class Basket : MonoBehaviour {
 	int limitDes = 2;
 	bool allowMoving = false;
 
-	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
-	// START // 
 	// Use this for initialization
 	void Start () {
 		if (Destination.Length < 2) {
@@ -24,12 +22,9 @@ public class Basket : MonoBehaviour {
 		currentDestination = 0;
 		target = Destination [currentDestination].position;
 	}
-	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
-	// UPDATE // 
+	
 	// Update is called once per frame
 	void Update () {
-		// used for when the baskit moves around the screen, not needed for this version of the game 
-		/* 
 		if (allowMoving) {
 			transform.position = Vector2.MoveTowards (transform.position, target, speed * Time.deltaTime);
 			if (Vector2.Distance (transform.position, target) < 0.01f) {
@@ -41,7 +36,6 @@ public class Basket : MonoBehaviour {
 			}
 		}else //alway moving to the first point, that's mean the center point
 			transform.position = Vector2.MoveTowards (transform.position, centerDes.position, speed * Time.deltaTime);
-		*/
 
 		if (GameManager.Instance.Point >= pointToMove)
 			allowMoving = true;
@@ -49,8 +43,6 @@ public class Basket : MonoBehaviour {
 			limitDes = 3;
 	}
 
-	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
-	// RESET // 
 	//called by GameManager when gameover
 	public void Reset(){
 		currentDestination = 0;

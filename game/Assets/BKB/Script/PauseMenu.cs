@@ -6,7 +6,7 @@ public class PauseMenu : MonoBehaviour {
 	public string game; 		// Strings to hold level names 
 	public string MainScreen; 
 
-	public bool isPaused;	// is paused is used to switch canvas on and off
+	public static bool isPaused;	// is paused is used to switch canvas on and off
 
 	public GameObject pauseMenuCanvas; // GameObject for the Canvas under pause menu 
 
@@ -51,6 +51,7 @@ public class PauseMenu : MonoBehaviour {
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
 	// MAIN MENU BUTTON // 
 	public void mainMENU(){
+		isPaused = false; 
 		Application.LoadLevel (MainScreen);  // load main screen 
 	}
 		

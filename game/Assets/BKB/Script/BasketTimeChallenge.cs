@@ -44,8 +44,10 @@ public class BasketTimeChallenge : MonoBehaviour {
 
 		transform.position = Vector2.MoveTowards (transform.position, centerDes.position, speed * Time.deltaTime);
 			
-		//timeLeft -= Time.deltaTime;
-		timeLeft = _timer - (Time.realtimeSinceStartup - timeStart);
+		if(!PauseMenu.isPaused){	// This is where you pause the time when the pause menu is up
+		timeLeft -= Time.deltaTime;
+		//timeLeft = _timer - (Time.realtimeSinceStartup - timeStart);
+		}
 
 		if (timeLeft <= 0) {
 			GameManager.Instance.GameOver ();

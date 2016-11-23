@@ -1,6 +1,4 @@
-﻿//class not need for this version of the game
-/*
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -35,4 +33,3 @@ public class Item : MonoBehaviour {
 	}
 		
 }
-*/
