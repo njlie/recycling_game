@@ -1,0 +1,20 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\BKB\Script\TheBall.cs">
+    <Files>
+      <File FileName="Assets\BKB\Script\Ball.cs" Line="92" Column="5" />
+      <File FileName="Assets\BKB\Script\TheBall.cs" Line="151" Column="4" />
+      <File FileName="Assets\BKB\Script\GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\BKB\Script\GlobalValue.cs" Line="1" Column="1" />
+      <File FileName="Assets\BKB\Script\BasketSliding.cs" Line="1" Column="1" />
+      <File FileName="Assets\BKB\Script\TimeDisplay.cs" Line="17" Column="6" />
+      <File FileName="Assets\BKB\Script\UI.cs" Line="1" Column="1" />
+      <File FileName="Assets\BKB\Script\Basket.cs" Line="1" Column="1" />
+      <File FileName="Assets\BKB\Script\TrashDisplay.cs" Line="6" Column="2" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
