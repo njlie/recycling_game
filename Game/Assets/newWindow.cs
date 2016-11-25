@@ -44,6 +44,7 @@ public class newWindow : MonoBehaviour {
 		Application.LoadLevel (OptionsScreen);	// load the Tutorial Screen
 	}
 		
+		
 	public void quit(){
 		Application.Quit();	// quit the game 
 	}
