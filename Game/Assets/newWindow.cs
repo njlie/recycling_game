@@ -7,6 +7,8 @@ public class newWindow : MonoBehaviour {
 	public string SignIn; 
 	public string Profile; 
 	public string Main;
+	public string TutorialScreen;
+	public string OptionsScreen;
 
 	// Use this for initialization
 	void Start () {
@@ -34,4 +36,15 @@ public class newWindow : MonoBehaviour {
 		Application.LoadLevel (Main);	// load the game Level
 	}
 
+	public void changeTutorialScreen(){
+		Application.LoadLevel (TutorialScreen);	// load the Tutorial Screen
+	}
+
+	public void changeOptionsScreen(){
+		Application.LoadLevel (OptionsScreen);	// load the Tutorial Screen
+	}
+		
+	public void quit(){
+		Application.Quit();	// quit the game 
+	}
 }
