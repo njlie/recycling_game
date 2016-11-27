@@ -131,6 +131,10 @@ public class TheBall : MonoBehaviour {
 		rigBall = Ball.GetComponent<Rigidbody2D> ();
 
 	}
+	
+	public void CycleBallSprite(){
+		Destroy (Ball);
+	}
 
 	//change the ball's sprite
 	public void ChangeBallSprite(){

@@ -4,6 +4,7 @@ using System.Collections;
 public class newWindow : MonoBehaviour {
 
 	public string game; 
+	public string gameTest;
 	public string SignIn; 
 	public string Profile; 
 	public string Main;
@@ -24,6 +25,10 @@ public class newWindow : MonoBehaviour {
 		Application.LoadLevel (game);	// load the game Level
 	}
 
+	public void changeToGameTest(){
+		Application.LoadLevel (gameTest);
+	}
+	
 	public void changeSignIn(){
 		Application.LoadLevel (SignIn);	// load the game Level
 	}
