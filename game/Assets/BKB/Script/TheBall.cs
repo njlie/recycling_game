@@ -12,12 +12,14 @@ public class TheBall : MonoBehaviour {
 	public Transform[] SpawnPoint;	//random spawn the ball with this postion list
 	public Sprite[] itemObj;
 	public int count = 0;
+    public int numItems = 12;
 
 	public Queue<int> randInd = new Queue<int> ();
 
 	[HideInInspector]
 	public Sprite BallSprite;	//change every Ball sprite with this BallSprite 
 	private int randIndex;
+    private int testIndex = 0;
 
 	public GameObject Star;
 	[Range(10,100)]
@@ -54,13 +56,13 @@ public class TheBall : MonoBehaviour {
 		_StartMenu = FindObjectOfType<StartMenu> ();
 
 		camera = Camera.main;
-
+        randInd.Clear();
+		//randInd.Enqueue (0);
+		randInd.Enqueue(Random.Range (0, numItems));
+		//randInd.Enqueue(Random.Range (0, 7));
 		//get the choosen ball sprite
 		BallSprite = ItemManager.Instance.GetItemImage (PlayerPrefs.GetInt (GlobalValue.ChoosenBall, 0));
-		randInd.Clear();
-		//randInd.Enqueue (0);
-		randInd.Enqueue(Random.Range (0, 7));
-		//randInd.Enqueue(Random.Range (0, 7));
+		
 	}
 
 
@@ -134,7 +136,7 @@ public class TheBall : MonoBehaviour {
 	
 	public void CycleBallSprite(){
 		Destroy (Ball);
-	}
+ 	}
 
 	//change the ball's sprite
 	public void ChangeBallSprite(){
@@ -152,7 +154,7 @@ public class TheBall : MonoBehaviour {
 	public void dequeueItem(bool correct) {
 		if (correct) {
 			randInd.Dequeue ();
-			randInd.Enqueue (Random.Range (0, 7));
+			randInd.Enqueue (Random.Range (0, numItems));
 			count++;
 		}
 		var spawnPoint = SpawnPoint.Length > 0 ? SpawnPoint [Random.Range (0, SpawnPoint.Length)].position : transform.position;

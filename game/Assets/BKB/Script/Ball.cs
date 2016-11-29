@@ -9,6 +9,10 @@ public class Ball : MonoBehaviour {
 	public bool fire = false;	//telling that the ball is fired already
 	public Transform Ballsprite;
 
+    private int compostCount = 2;
+    private int landfillCount = 2;
+    private int recycleCount = 8;
+
 	public AudioClip[] bounceSound;
 	[Range(0,1)]
 	public float bounceSoundVolume = 0.5f;
@@ -60,12 +64,12 @@ public class Ball : MonoBehaviour {
 	}
 
 	public void AssignValue(int index){
-		if (index == 0 || index == 1 || index == 2)
-			itemValue = "Recycle";
-		else if (index == 3 || index == 4)
+		if (index < compostCount)
 			itemValue = "Compost";
-		else
+		else if (index < compostCount + landfillCount)
 			itemValue = "Landfill";
+		else
+			itemValue = "Recycle";
 	}
 
 	// Update is called once per frame
