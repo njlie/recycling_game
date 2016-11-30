@@ -102,7 +102,7 @@
     <Compile Include="Assets\BKB\Script\TrashDisplay.cs" />
     <Compile Include="Assets\BKB\Script\UI.cs" />
     <Compile Include="Assets\BKB\Script\UnityAds.cs" />
-    <Compile Include="Assets\newWindow.cs" />
+    <Compile Include="Assets\BKB\Script\newWindow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
