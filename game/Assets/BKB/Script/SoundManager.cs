@@ -32,6 +32,9 @@ public class SoundManager : MonoBehaviour {
 		set{ Instance.soundFx.volume = value; }
 		get{ return Instance.soundFx.volume; }
 	}
+		
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// AWAKE //
 	// Use this for initialization
 	void Awake(){
 		Instance = this;
@@ -40,6 +43,9 @@ public class SoundManager : MonoBehaviour {
 		musicAudio.volume = 0.5f;
 		soundFx = gameObject.AddComponent<AudioSource> ();
 	}
+
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// START //
 	void Start () {
 //		//Check auido and sound
 //		if (!GlobalValue.isMusic)
@@ -49,23 +55,26 @@ public class SoundManager : MonoBehaviour {
 		PlayMusic(musicsGame,musicsGameVolume);
 	}
 
-	public static void PlaySfx(AudioClip clip){
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// PLAYSfx //
+	// play all the various sounds used in the game 
+	public static void PlaySfx(AudioClip clip){			// play sound fx 
 		Instance.PlaySound(clip, Instance.soundFx);
 	}
-
-	public static void PlaySfx(AudioClip clip, float volume){
+		
+	public static void PlaySfx(AudioClip clip, float volume){	// play sound fx
 		Instance.PlaySound(clip, Instance.soundFx, volume);
 	}
 
-	public static void PlayMusic(AudioClip clip){
+	public static void PlayMusic(AudioClip clip){		// play music 
 		Instance.PlaySound (clip, Instance.musicAudio);
 	}
-
-	public static void PlayMusic(AudioClip clip, float volume){
+		
+	public static void PlayMusic(AudioClip clip, float volume){ // play music 
 		Instance.PlaySound (clip, Instance.musicAudio, volume);
 	}
-
-	private void PlaySound(AudioClip clip,AudioSource audioOut){
+		
+	private void PlaySound(AudioClip clip,AudioSource audioOut){	//play Sound
 		if (clip == null) {
 //			Debug.Log ("There are no audio file to play", gameObject);
 			return;
@@ -77,8 +86,8 @@ public class SoundManager : MonoBehaviour {
 		} else
 			audioOut.PlayOneShot (clip, SoundVolume);
 	}
-
-	private void PlaySound(AudioClip clip,AudioSource audioOut, float volume){
+		
+	private void PlaySound(AudioClip clip,AudioSource audioOut, float volume){ //play Sound
 		if (clip == null) {
 //			Debug.Log ("There are no audio file to play", gameObject);
 			return;
@@ -90,4 +99,5 @@ public class SoundManager : MonoBehaviour {
 		} else
 			audioOut.PlayOneShot (clip, SoundVolume * volume);
 	}
-}
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+}// end of SoundManager

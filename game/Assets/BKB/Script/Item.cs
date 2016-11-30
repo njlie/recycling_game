@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿/*
+ * CODE NOT NEEDED FOR THIS VERSION OF THE GAME 
+ * 
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -33,3 +36,4 @@ public class Item : MonoBehaviour {
 	}
 		
 }
+*/

@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * BasketManager is used to manage the types of games 
+ * for this version of the game we only care about timechallenge version 
+*/
+
 public class BasketManager : MonoBehaviour {
 	public static BasketManager Instance;		
 	//public enum PlayMode{Endless, Sliding, TimeChallenge};
@@ -8,11 +13,13 @@ public class BasketManager : MonoBehaviour {
 	[HideInInspector]
 	public PlayMode Mode;
 
-//	public GameObject endless;
+//	public GameObject endless;	// game objects 
 //	public GameObject sliding;
 //	public GameObject timechallenge;
-	public GameObject timechallenge;
+	public GameObject timechallenge; // this is the only one we care about 
 
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// AWAKE //
 	void Awake(){
 		Instance = this;
 //		endless.SetActive (false);
@@ -20,6 +27,8 @@ public class BasketManager : MonoBehaviour {
 		timechallenge.SetActive (true);
 	}
 
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// START //
 	// Use this for initialization
 	void Start () {
 //		Mode = PlayMode.TimeChallenge;
@@ -44,6 +53,8 @@ public class BasketManager : MonoBehaviour {
 //		SoundManager.PlaySfx (SoundManager.Instance.soundClick);
 //	}
 
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// TIME CHALLENGE //
 	public void TimeChallenge(){
 //		endless.SetActive (false);
 //		sliding.SetActive (false);
@@ -52,4 +63,4 @@ public class BasketManager : MonoBehaviour {
 		Mode = PlayMode.Easy;
 		SoundManager.PlaySfx (SoundManager.Instance.soundClick);
 	}
-}
+}// end of BasketManager

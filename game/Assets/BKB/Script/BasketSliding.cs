@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿/*
+ * CODE NOT NEEDED FOR THIS VERSION OF THE GAME
+ * 
+using UnityEngine;
 using System.Collections;
 
 public class BasketSliding : MonoBehaviour {
@@ -20,3 +23,4 @@ public class BasketSliding : MonoBehaviour {
 		}
 	}
 }
+*/ 

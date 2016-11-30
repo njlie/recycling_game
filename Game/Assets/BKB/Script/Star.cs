@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿/*
+* CODE NOT NEEDED FOR THIS VERSION OF THE GAME
+* 
+using UnityEngine;
 using System.Collections;
 
 public class Star : MonoBehaviour {
@@ -12,7 +15,7 @@ public class Star : MonoBehaviour {
 	void Start () {
 		destination = Camera.main.ScreenToWorldPoint (MenuManager.Instance.star_menu.position);		//convert star menu screen position to world position
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (!collected)
@@ -21,7 +24,7 @@ public class Star : MonoBehaviour {
 		transform.position = Vector2.MoveTowards (transform.position, destination, speed * Time.deltaTime);	//move this star to the star menu
 		if (Vector2.Distance (transform.position, destination) < 0.01f)
 			Destroy (gameObject);		//destroy the star when it is nearly the menu star enough
-	
+
 	}
 
 	void OnTriggerEnter2D(Collider2D other){
@@ -35,3 +38,4 @@ public class Star : MonoBehaviour {
 		}
 	}
 }
+*/

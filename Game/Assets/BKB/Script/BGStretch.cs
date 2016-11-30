@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * stretchs or fits the game into the screen 
+*/
+
 public class BGStretch : MonoBehaviour {
 
 	float srx, sry;
@@ -17,4 +21,4 @@ public class BGStretch : MonoBehaviour {
 			xScale = 1.5f; //for web view etc . you can change 1.5 according to you
 		transform.localScale = new Vector3 (xScale,yScale,1);// I am using 2d so z doesn't needed.
 	}
-}
+} //end of BGStretch

@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿/*
+ * CODE NOT NEEDED FOR THIS VERSION OF THE GAME 
+ * 
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -84,5 +87,6 @@ public class NormalBasket : MonoBehaviour {
 			}
 		}
 	}
-	
 }
+*/
+

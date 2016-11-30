@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿/*
+ * CODE NOT NEEDED FOR THIS VERSION OF THE GAME 
+ * 
+using UnityEngine;
 using System.Collections;
 
 #if UNITY_ADS
@@ -35,9 +38,6 @@ public class UnityAds : MonoBehaviour {
 			Advertisement.Show("rewardedVideo", options);
 			}
 	}
-	
-
-
 
 		private void HandleShowResult(ShowResult result)
 		{
@@ -60,3 +60,4 @@ public class UnityAds : MonoBehaviour {
 	}
 	#endif
 }
+*/

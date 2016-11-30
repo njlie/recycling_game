@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿/*
+ * CODE NOT NEEDED FOR THIS VERSION OF THE GAME
+ * 
+using UnityEngine;
 using System.Collections;
 
 public class Shop : MonoBehaviour {
@@ -13,3 +16,4 @@ public class Shop : MonoBehaviour {
 	
 	}
 }
+*/

@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * BasketTimeChallenge is the game itself 
+ * 
+*/
+
 public class BasketTimeChallenge : MonoBehaviour {
 	public static BasketTimeChallenge Instance;
 
@@ -22,6 +27,8 @@ public class BasketTimeChallenge : MonoBehaviour {
 		Instance = this;
 	}
 
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// START //
 	// Use this for initialization
 	void Start () {
 		if (Destination.Length < 3) {
@@ -34,19 +41,20 @@ public class BasketTimeChallenge : MonoBehaviour {
 		timeLeft = 120f;
 	}
 
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// UPDATE //
 	// Update is called once per frame
 	void Update () {
 		if (!isRunning) {
 			transform.position = Vector2.MoveTowards (transform.position, centerDes.position, speed * Time.deltaTime);
 			return;
 		}
-		
 
 		transform.position = Vector2.MoveTowards (transform.position, centerDes.position, speed * Time.deltaTime);
 			
 		if(!PauseMenu.isPaused){	// This is where you pause the time when the pause menu is up
 		timeLeft -= Time.deltaTime;
-		//timeLeft = _timer - (Time.realtimeSinceStartup - timeStart);
+		//timeLeft = _timer - (Time.realtimeSinceStartup - timeStart); // do not use this 
 		}
 
 		if (timeLeft <= 0) {
@@ -55,6 +63,8 @@ public class BasketTimeChallenge : MonoBehaviour {
 		}
 	}
 
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// START RUN //
 	public void StartRun(){
 		if (isRunning)		//prevent the Ball send this event again
 			return;
@@ -63,6 +73,8 @@ public class BasketTimeChallenge : MonoBehaviour {
 		timeStart = Time.realtimeSinceStartup;
 	}
 
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// RESET //
 	//called by GameManager when gameover
 	public void Reset(){
 		currentDestination = 0;
@@ -71,4 +83,4 @@ public class BasketTimeChallenge : MonoBehaviour {
 		//timeLeft = 120f;
 		isRunning = false;
 	}
-}
+}// end of BasketTimeChallenge

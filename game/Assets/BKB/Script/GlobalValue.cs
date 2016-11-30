@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * GLOBAL Value 
+ * holds Global variables for game 
+*/
+
 public class GlobalValue : MonoBehaviour {
 	public static string Stars = "Stars";
 	public static string Points = "Points";
@@ -15,4 +20,4 @@ public class GlobalValue : MonoBehaviour {
 //	public static bool isMusic = true;
 //	public static bool isRestart = false;
 
-}
+} // end of GlobalValue 

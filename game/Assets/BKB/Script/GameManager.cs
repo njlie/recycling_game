@@ -1,17 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * GameManager is used to Manage the components of the game like the points. 
+*/
+
 public class GameManager: MonoBehaviour {
 	public static GameManager Instance{ get; private set;}
 
-	public enum GameState{Menu,Playing, Dead, Finish};
+	public enum GameState{Menu,Playing, Dead, Finish}; // what is the state of the game?
 	public GameState State{ get; set; }
 
-	public int starsDefault = 100;
+	public int starsDefault = 100; // star thing not needed 
 
-	[Header("Floating Text")]
-	public GameObject FloatingText;
-	private MenuManager menuManager;
+	//[Header("Floating Text")]
+	//public GameObject FloatingText;
+	private MenuManager menuManager; // game object 
 
 	SoundManager soundManager;
 	Basket _Basket;
@@ -19,12 +23,15 @@ public class GameManager: MonoBehaviour {
 	[HideInInspector]
 	public bool isNoLives = false;
 
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// AWAKE //
 	void Awake(){
 		Instance = this;
 		State = GameState.Menu;
 	}
 
-
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// POINT //
 	public int Point{ get; set; }
 	int savePointCheckPoint;
 
@@ -55,7 +62,8 @@ public class GameManager: MonoBehaviour {
 			PlayerPrefs.SetInt (mode, value); } 
 	}
 
-
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// START //
 	void Start(){
 		if (!PlayerPrefs.HasKey (GlobalValue.Stars))
 			SavedStars = starsDefault;
@@ -65,7 +73,7 @@ public class GameManager: MonoBehaviour {
 		soundManager = FindObjectOfType<SoundManager> ();
 		_Basket = FindObjectOfType<Basket> ();
 	}
-
+	/* CODE NOT NEEDED FOR THIS VERSION OF THE GAME
 	public void ShowFloatingText(string text, Vector2 positon, Color color){
 		GameObject floatingText = Instantiate (FloatingText) as GameObject;
 		var _position = Camera.main.WorldToScreenPoint (positon);
@@ -75,28 +83,27 @@ public class GameManager: MonoBehaviour {
 			
 		var _FloatingText = floatingText.GetComponent<FloatingText> ();
 		_FloatingText.SetText (text, color);
-	}
-
+	}*/
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// START GAME //
 	public void StartGame(){
 		State = GameState.Playing;
 	}
-
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// GAME OVER //
 	public void GameOver(){
 //		State = GameState.Dead;
 		if (Point > SavedPoints)
 			SavedPoints = Point;
-		
+	
 		MenuManager.Instance.GameOver ();
 		SoundManager.PlaySfx (soundManager.soundGameover, 0.5f);
 
-
-
 		StartCoroutine (ResetCo (0.1f));
-
-
 //		AdsController.ShowAds ();
 	}
-
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// RESET CO //
 	IEnumerator ResetCo(float time){
 		yield return new WaitForSeconds (time);
 
@@ -108,4 +115,4 @@ public class GameManager: MonoBehaviour {
 			BasketTimeChallenge.Instance.Reset ();
 		GlobalValue.combo = 1;
 	}
-}
+}//end of GameManager

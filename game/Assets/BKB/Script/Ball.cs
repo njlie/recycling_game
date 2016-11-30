@@ -1,6 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * Ball class is the trash objects themselves  
+ * Ball is used to refer to trash objects for clarity
+ * called by TheBall class 
+*/
+
 public class Ball : MonoBehaviour { 
 	public Vector3 scaleTo;		//the ball image will be scale to this size after it's fired
 	public float speed = 1f;	//the speed to scale the ball
@@ -9,7 +15,7 @@ public class Ball : MonoBehaviour {
 	public bool fire = false;	//telling that the ball is fired already
 	public Transform Ballsprite;
 
-    private int compostCount = 2;
+	private int compostCount = 2;  // values used to Assign values
     private int landfillCount = 2;
     private int recycleCount = 8;
 
@@ -43,6 +49,8 @@ public class Ball : MonoBehaviour {
 	[HideInInspector]
 	public bool touchTheBall = false;
 
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// START //
 	// Use this for initialization
 	void Start () {
 		Debug.Log ("Ball/Start");
@@ -52,26 +60,35 @@ public class Ball : MonoBehaviour {
 		coll.enabled = true;
 	}
 
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// FIRE //
 	public void Fire(){
 		Debug.Log ("Ball/Fire");
 		fire = true;
 		coll.enabled = false;		//turn off collider when the ball begin move up to avoid the unnecessary collides
 	}
 
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// CHANGE SPRITE //
 	public void ChangeSprite(Sprite sprite){
 		Debug.Log ("Ball/ChangeSprite");
 		Ballsprite.GetComponent<SpriteRenderer> ().sprite = sprite;		//change the ball sprite
 	}
 
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// ASSIGN VAlUE //
+	// assign the value of each object 
 	public void AssignValue(int index){
 		if (index < compostCount)
-			itemValue = "Compost";
+			itemValue = "Compost";		// it's compost item 
 		else if (index < compostCount + landfillCount)
-			itemValue = "Landfill";
+			itemValue = "Landfill";	// it's LandFill item 
 		else
-			itemValue = "Recycle";
+			itemValue = "Recycle";	// it's Recycle item 
 	}
 
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// UPDATE //
 	// Update is called once per frame
 	void Update () {
 		if (end)
@@ -95,11 +112,14 @@ public class Ball : MonoBehaviour {
 //		isPerfect = false;		//no perfect when the ball collide with the basket
 //	}
 
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// MOUSE DOWN //
 	void OnMouseDown() {
 		Debug.Log ("Ball/onMouseDown");
 		touchTheBall = true;		//touch on the ball, mean the first touch must on the ball then we can fire it
 	}
-
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// ADD POINT //
 	void AddPoint() {
 		Debug.Log ("ADDPOINT");
 		TheBall.Instance.dequeueItem (true);
@@ -115,6 +135,9 @@ public class Ball : MonoBehaviour {
 		//}
 	}
 
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// ON TRIGGER  //
+	// This is where the collision detection is done 
 	void OnTriggerEnter2D(Collider2D other){
 		Debug.Log (itemValue);
 		if (!end && (other.tag == "Compost" || other.tag == "Landfill" || other.tag == "Recycle")) {
@@ -126,7 +149,7 @@ public class Ball : MonoBehaviour {
 
 			if (other.tag == "Landfill") {
 				Debug.Log ("Landfill");
-				if (itemValue == "Landfill") {
+				if (itemValue == "Landfill") { // check the item value of the object, is it LandFill? 
 					AddPoint ();
 				} else {
 					Debug.Log ("WRONG");
@@ -135,7 +158,7 @@ public class Ball : MonoBehaviour {
 
 			} else if (other.tag == "Compost") {
 				Debug.Log ("Compost");
-				if (itemValue == "Compost") {
+				if (itemValue == "Compost") { // check the item value of the object, is it Compost? 
 					AddPoint ();
 				} else {
 					Debug.Log ("WRONG");
@@ -143,7 +166,7 @@ public class Ball : MonoBehaviour {
 				}
 			} else if (other.tag == "Recycle") {
 				Debug.Log ("Recycle");
-				if (itemValue == "Recycle") {
+				if (itemValue == "Recycle") { // check the item value of the object, is it Recycle? 
 					AddPoint ();
 				} else {
 					Debug.Log ("WRONG");
@@ -161,4 +184,4 @@ public class Ball : MonoBehaviour {
 			end = true;
 		}
 	}
-}
+} // end of ball class

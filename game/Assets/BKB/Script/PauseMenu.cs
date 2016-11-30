@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+ * Pause Menu class used to manage the pause menu  
+ *
+*/
+
 public class PauseMenu : MonoBehaviour {	
 
 	public string game; 		// Strings to hold level names 
