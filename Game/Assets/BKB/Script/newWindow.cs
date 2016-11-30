@@ -1,8 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class newWindow : MonoBehaviour {
+/* 
+ * newWindow class is used to change the Window
+ *  
+*/
 
+public class newWindow : MonoBehaviour {
+	//Strings to hold the Scene names
 	public string game; 
 	public string gameTest;
 	public string SignIn; 
@@ -11,21 +16,13 @@ public class newWindow : MonoBehaviour {
 	public string TutorialScreen;
 	public string OptionsScreen;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+	// functions to change scenes //
 	public void changeToGame(){
 		Application.LoadLevel (game);	// load the game Level
 	}
 
-	public void changeToGameTest(){
+	public void changeToGameTest(){		// testing version of the game
 		Application.LoadLevel (gameTest);
 	}
 	
@@ -49,8 +46,8 @@ public class newWindow : MonoBehaviour {
 		Application.LoadLevel (OptionsScreen);	// load the Tutorial Screen
 	}
 		
-		
 	public void quit(){
 		Application.Quit();	// quit the game 
 	}
-}
+	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+} // end of newWindow

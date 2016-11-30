@@ -66,7 +66,7 @@ public class TheBall : MonoBehaviour {
 		BallSprite = ItemManager.Instance.GetItemImage (PlayerPrefs.GetInt (GlobalValue.ChoosenBall, 0));
 		randInd.Clear();
 		//randInd.Enqueue (0);
-		randInd.Enqueue(Random.Range (0, 7));
+		randInd.Enqueue(Random.Range (0, 12));
 		//randInd.Enqueue(Random.Range (0, 7));
 	}
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
@@ -173,7 +173,7 @@ public class TheBall : MonoBehaviour {
 	public void dequeueItem(bool correct) {
 		if (correct) {
 			randInd.Dequeue ();
-			randInd.Enqueue (Random.Range (0, 7));
+			randInd.Enqueue (Random.Range (0, 12));
 			count++;
 		}
 		var spawnPoint = SpawnPoint.Length > 0 ? SpawnPoint [Random.Range (0, SpawnPoint.Length)].position : transform.position;
