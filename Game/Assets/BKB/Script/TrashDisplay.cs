@@ -11,7 +11,7 @@ public class TrashDisplay : MonoBehaviour {
 	//public Vector3 pos1 = new Vector3(0,-3.6f,0);
 	//public Vector3 pos2 = new Vector3(0,-4.4f,0);
 	int trashcount = 0;
-	float posy = -3.1f; 	 	// starting y position
+	public float posy = -3.1f; 	 	// starting y position
 	float posOffset = 0.05f; 	// y position offset 
 
 	// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
