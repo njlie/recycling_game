@@ -1,92 +1,92 @@
-﻿/*
- * CODE NOT NEEDED FOR THIS VERSION OF THE GAME 
- * 
-using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+﻿// ==============================================================================================================================
+// OBSOLETE CODE
+// 
+// using UnityEngine;
+// using System.Collections;
+// using System.Collections.Generic;
+//
+// public class NormalBasket : MonoBehaviour {
+//
+//	public Vector3[] localWaypoints;
+//	public Vector3[] localWaypoints2;
+//	Vector3[] globalWaypoints;
+//
+//	public int pointToMove = 10;
+//
+//	public float speed;
+//	public bool cyclic;
+//	public float waitTime;
+//	[Range(0,2)]
+//	public float easeAmount;
 
-public class NormalBasket : MonoBehaviour {
+//	int fromWaypointIndex;
+//	float percentBetweenWaypoints;
+//	float nextMoveTime;
 
-	public Vector3[] localWaypoints;
-	public Vector3[] localWaypoints2;
-	Vector3[] globalWaypoints;
+//	public void Start () {
 
-	public int pointToMove = 10;
+//		globalWaypoints = new Vector3[localWaypoints.Length];
+//		for (int i =0; i < localWaypoints.Length; i++) {
+//			globalWaypoints[i] = localWaypoints[i] + transform.position;
+//		}
+//	}
 
-	public float speed;
-	public bool cyclic;
-	public float waitTime;
-	[Range(0,2)]
-	public float easeAmount;
+//	void Update () {
+//		if (GameManager.Instance.Point < pointToMove)
+//			return;
 
-	int fromWaypointIndex;
-	float percentBetweenWaypoints;
-	float nextMoveTime;
-	
-	public void Start () {
+//		Vector3 velocity = CalculatePlatformMovement();
+//		transform.Translate (velocity);
+//	}
 
-		globalWaypoints = new Vector3[localWaypoints.Length];
-		for (int i =0; i < localWaypoints.Length; i++) {
-			globalWaypoints[i] = localWaypoints[i] + transform.position;
-		}
-	}
+//	float Ease(float x) {
+//		float a = easeAmount + 1;
+//		return Mathf.Pow(x,a) / (Mathf.Pow(x,a) + Mathf.Pow(1-x,a));
+//	}
 
-	void Update () {
-		if (GameManager.Instance.Point < pointToMove)
-			return;
+//	Vector3 CalculatePlatformMovement() {
 
-		Vector3 velocity = CalculatePlatformMovement();
-		transform.Translate (velocity);
-	}
+//		if (Time.time < nextMoveTime) {
+//			return Vector3.zero;
+//		}
 
-	float Ease(float x) {
-		float a = easeAmount + 1;
-		return Mathf.Pow(x,a) / (Mathf.Pow(x,a) + Mathf.Pow(1-x,a));
-	}
-	
-	Vector3 CalculatePlatformMovement() {
+//		fromWaypointIndex %= globalWaypoints.Length;
+//		int toWaypointIndex = (fromWaypointIndex + 1) % globalWaypoints.Length;
+//		float distanceBetweenWaypoints = Vector3.Distance (globalWaypoints [fromWaypointIndex], globalWaypoints [toWaypointIndex]);
+//		percentBetweenWaypoints += Time.deltaTime * speed/distanceBetweenWaypoints;
+//		percentBetweenWaypoints = Mathf.Clamp01 (percentBetweenWaypoints);
+//		float easedPercentBetweenWaypoints = Ease (percentBetweenWaypoints);
 
-		if (Time.time < nextMoveTime) {
-			return Vector3.zero;
-		}
+//		Vector3 newPos = Vector3.Lerp (globalWaypoints [fromWaypointIndex], globalWaypoints [toWaypointIndex], easedPercentBetweenWaypoints);
 
-		fromWaypointIndex %= globalWaypoints.Length;
-		int toWaypointIndex = (fromWaypointIndex + 1) % globalWaypoints.Length;
-		float distanceBetweenWaypoints = Vector3.Distance (globalWaypoints [fromWaypointIndex], globalWaypoints [toWaypointIndex]);
-		percentBetweenWaypoints += Time.deltaTime * speed/distanceBetweenWaypoints;
-		percentBetweenWaypoints = Mathf.Clamp01 (percentBetweenWaypoints);
-		float easedPercentBetweenWaypoints = Ease (percentBetweenWaypoints);
+//		if (percentBetweenWaypoints >= 1) {
+//			percentBetweenWaypoints = 0;
+//			fromWaypointIndex ++;
 
-		Vector3 newPos = Vector3.Lerp (globalWaypoints [fromWaypointIndex], globalWaypoints [toWaypointIndex], easedPercentBetweenWaypoints);
+//			if (!cyclic) {
+//				if (fromWaypointIndex >= globalWaypoints.Length-1) {
+//					fromWaypointIndex = 0;
+//					System.Array.Reverse(globalWaypoints);
+//				}
+//			}
+//			nextMoveTime = Time.time + waitTime;
+//		}
 
-		if (percentBetweenWaypoints >= 1) {
-			percentBetweenWaypoints = 0;
-			fromWaypointIndex ++;
+//		return newPos - transform.position;
+//	}
 
-			if (!cyclic) {
-				if (fromWaypointIndex >= globalWaypoints.Length-1) {
-					fromWaypointIndex = 0;
-					System.Array.Reverse(globalWaypoints);
-				}
-			}
-			nextMoveTime = Time.time + waitTime;
-		}
+//	void OnDrawGizmos() {
+//		if (localWaypoints != null) {
+//			Gizmos.color = Color.red;
+//			float size = .3f;
 
-		return newPos - transform.position;
-	}
-
-	void OnDrawGizmos() {
-		if (localWaypoints != null) {
-			Gizmos.color = Color.red;
-			float size = .3f;
-
-			for (int i =0; i < localWaypoints.Length; i ++) {
-				Vector3 globalWaypointPos = (Application.isPlaying)?globalWaypoints[i] : localWaypoints[i] + transform.position;
-				Gizmos.DrawLine(globalWaypointPos - Vector3.up * size, globalWaypointPos + Vector3.up * size);
-				Gizmos.DrawLine(globalWaypointPos - Vector3.left * size, globalWaypointPos + Vector3.left * size);
-			}
-		}
-	}
-}
-*/
+//			for (int i =0; i < localWaypoints.Length; i ++) {
+//				Vector3 globalWaypointPos = (Application.isPlaying)?globalWaypoints[i] : localWaypoints[i] + transform.position;
+//				Gizmos.DrawLine(globalWaypointPos - Vector3.up * size, globalWaypointPos + Vector3.up * size);
+//				Gizmos.DrawLine(globalWaypointPos - Vector3.left * size, globalWaypointPos + Vector3.left * size);
+//			}
+//		}
+//	}
+// }
+// ==============================================================================================================================
 

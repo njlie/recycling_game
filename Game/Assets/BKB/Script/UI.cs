@@ -1,20 +1,20 @@
-﻿/*
- * CODE NOT NEEDED FOR THIS VERSION OF THE GAME 
- * 
-using UnityEngine;
-using System.Collections;
-using UnityEngine.UI;
-
-public class UI : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
-	}
-}
-*/
+﻿// ==============================================================================================================================
+// OBSOLETE CODE
+//
+// using UnityEngine;
+// using System.Collections;
+// using UnityEngine.UI;
+//
+// public class UI : MonoBehaviour {
+//
+//	// Use this for initialization
+//	void Start () {
+//
+//	}
+//
+//	// Update is called once per frame
+//	void Update () {
+//
+//	}
+// }
+// ==============================================================================================================================
