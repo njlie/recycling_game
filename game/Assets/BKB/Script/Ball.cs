@@ -22,6 +22,7 @@ public class Ball : MonoBehaviour {
 	private int         compostCount = 2;       // values used to assign compost index
     private int         landfillCount = 2;      // values used to assign landfill index
     private int         recycleCount = 8;       // values used to assign recycle index
+    private float       trashTimer = 0;
     
 	Rigidbody2D         rig;
 	Animator anim;
@@ -108,10 +109,23 @@ public class Ball : MonoBehaviour {
 		if (fire)	
 			Ballsprite.transform.localScale = Vector3.Lerp (Ballsprite.transform.localScale, scaleTo, speed * Time.deltaTime);
 
-		// just allow enable collider when the ball begin falling
-		if (rig.velocity.y < 0)
-			coll.enabled = true;
-	}
+        // just allow enable collider when the ball begin falling
+        if (rig.velocity.y < 0) {
+            coll.enabled = true;
+            trashTimer += Time.deltaTime;
+            print(trashTimer);
+        }
+        
+        if (trashTimer >= 0.5f )
+        {
+            TheBall.Instance.dequeueItem(false);
+            coll.enabled = false;
+            anim.SetTrigger("disappear");
+            Destroy(gameObject, 0f);
+            end = true;
+        }
+        
+    }
 
 
     // ==============================================================================================================================
